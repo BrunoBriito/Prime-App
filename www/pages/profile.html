@@ -1,0 +1,88 @@
+<template>
+  <div class="page">
+    <div class="navbar">
+      <div class="navbar-inner sliding">
+        <div class="left">
+          <a href="#" class="link back">
+            <i class="icon icon-back"></i>
+            <span></span>
+          </a>
+        </div>
+        <div class="title">Perfil</div>
+      </div>
+    </div>
+    <div class="page-content" style="display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            align-content: center;">
+
+
+      <a @click="inputImg">
+        <div class="card">
+
+
+          <div style="background-image:url(https://img.icons8.com/color/480/000000/house-stark.png); 
+                 height: 40vh; width: 40vh; 
+                 /* margin-left: 10.5vw; */
+                 border-radius: 50%;
+                 background-position: center;
+                 background-repeat: no-repeat; /* Do not repeat the image */
+                background-size: cover;background-repeat: no-repeat; /* Do not repeat the image */
+                background-size: cover;"
+            class="card-header align-items-flex-end" accept="image/*;capture=camera">
+
+
+
+          </div>
+      </a>
+
+
+
+      <!-- <input class="button button-big button-fill" type='file' id='_file' accept="image/*;capture=camera"> -->
+
+
+
+
+      <div class="block">
+        <input id="username" class="button button-big button-outline button-round" style="margin-top: 10vh; width: 100%;"
+          placeholder="Nome do Personagem" value="{{username}}">
+      </div>
+
+      <!--                 
+              <div class="block-title text-align-center">
+                <h1>Block title</h1>
+              </div> -->
+      <div class="block">
+        <a @click="signIn" class="button button-big button-outline button-round" style="margin-top: 20vh;">ATUALIZAR</a>
+      </div>
+    </div>
+  </div>
+</template>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+
+<script>
+  return {
+    data: function () {
+      return {
+        username: localStorage.username 
+      }
+    },
+    methods: {
+      inputImg: function () {
+        console.log("Olá");
+      },
+      signIn: function () {
+        var $ = this.$;
+        var app = this.$app;
+        var router = this.$router;
+        var username = $('input#username').val();
+
+        localStorage.username = username;
+        router.navigate('/menu/');
+
+      }
+    }
+  }
+</script>
